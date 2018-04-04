@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+h5 {
+  color: orange;
+}
+table {  
+    color: #333; /* Lighten up font color */
+    font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+    width: 740px; 
+    border-collapse: 
+    collapse; border-spacing: 0; 
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+td, th {
+ border: 1px solid #CCC; 
+ height: 30px;
+ padding: 2px;
+} 
+
+th {
+  background: linear-gradient(#333 0%,#444 100%);
+  color: #FFF; font-weight: bold;
+  height: 30px;
+  padding: 3px;
+
+}
+
+td {  
+    background: #FAFAFA; /* Lighter grey background */
+    text-align: center; 
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+
+.green{
+  color:green;
+}
+
+.red{
+  color:red;
+}
+
+.uvindex{
+  width:50%;
+  height:50%;
+  margin:5%;
+  padding: 10px;
+}

@@ -1,0 +1,44 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+
+.bg1 { 
+    /* The image used */
+    background-image: url("../images/tips/1.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg2 { 
+    /* The image used */
+    background-image: url("../images/news/bg3.jpg");
+
+    /* Full height */
+    height: 80%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+a img{
+	box-shadow: none;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+
+.w3-hover-opacity{
+	cursor: pointer;
+}
+img{
+	box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

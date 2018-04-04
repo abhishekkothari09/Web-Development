@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<title>Sun Smart</title>
+<meta charset="UTF-8">
+<!-- Use viewport and include CSS -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/weather.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="home.html"><img src="images/logo.jpg" alt="Logo"></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="signupweather.html" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> SIGN IN</a>
+    </div>
+
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="signupweather.html" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SIGN IN </a>
+</nav>
+
+<div id="contents">
+<br><br><br><br>
+<span class= "heading"> <h3>Getting Started</h3> </span>
+
+You'll need an active Sun Smart API subscription and your application registered with the API in order to receive the required access ID and secret key.
+
+<h5>Step 1:</h5> Sign up for the Sun Smart API subscription service. We offer a free developer account for you to give our API a test drive.
+
+<h5>Step 2:</h5>  Log in to your account and find the Apps section to register your application for an API access key. Within the Apps section, click on New Application to register a new app. You will then be prompted to enter a project name and namespace. These can be updated at any time.
+
+<h5> Step 3:</h5>  Find the endpoints and actions that provide you with the data you need in order to work with the API directly.
+
+<span class = "heading"> <h3>API Endpoints</h3> </span>
+
+Endpoints refer to the types of data to request, such as a place, observation, forecast or advisory, and will be the basis for any request made to the API. The following endpoints are currently supported within Aeris.
+
+<h4> By city name</h4>
+
+Description: <br>
+
+When you call by city name. API responds with a list of results that match a searching word.
+There is a possibility to receive a central district of the city/town with its own parameters (geographic coordinates/id/name) in API response. <br><br>
+
+API Call:<br>
+http://ec2-18-217-83-78.us-east-2.compute.amazonaws.com:3000/apiusers/cityname/:cityname/key/:key<br><br>
+Example API call:<br>
+http://ec2-18-217-83-78.us-east-2.compute.amazonaws.com:3000/apiusers/cityname/Tucson/key/Ash456hndklgy9 <br>
+
+API response:<br>
+
+{"avg_uv_exposure":"10"}
+
+<br><br><br>
+<h4>By ZIP code</h4>
+
+Description:<br>
+
+Please note if country is not specified then the search works for USA as a default. <br><br>
+
+API call:<br>
+http://ec2-18-217-83-78.us-east-2.compute.amazonaws.com:3000/apiusers/zip/:zip/key/:key<br><br>
+
+Examples of API calls:<br>
+http://ec2-18-217-83-78.us-east-2.compute.amazonaws.com:3000/apiusers/zip/85719/key/Ash456hndklgy9<br><br>
+
+API response:<br>
+
+{"avg_uv_exposure":"10"}
+
+<br><br><br>
+<span class= "heading"> <h3>Response Codes</h3></span>
+
+<div id="tables">
+ <table class="bordered responsive-table striped">
+        <thead>
+          <tr>
+              <th style="width:16.9%">Success Response Code</th>
+              <th style="width:15.9%">Response Name</th>
+              <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>200</td>
+            <td>OK</td>
+            <td>Request was fulfilled</td>
+          </tr>
+        </tbody>
+      </table> <br><br>
+       <table class="bordered responsive-table striped">
+        <thead>
+          <tr>
+              <th>Error Response Code</th>
+              <th>Response Name</th>
+              <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>400</td>
+            <td>Bad Request</td>
+            <td>Request had bad syntax or the parameters supplied were invalid</td>
+          </tr>
+          <tr>
+            <td>403</td>
+            <td>Forbidden</td>
+            <td>Valid API Key was not supplied in the query</td>
+          </tr>
+          <tr>
+            <td>404</td>
+            <td>Not Found </td>
+            <td>Server has not found a route matching the given URI</td>
+          </tr>
+            <tr>
+            <td>409</td>
+            <td>Service Unavailable</td>
+            <td>The server is currently unavailable</td>
+          </tr>
+            <tr>
+            <td>500 </td>
+            <td>Internal Error</td>
+            <td>Server encountered an unexpected condition which prevented it from fulfilling the request</td>
+          </tr>
+            <tr>
+            <td>503</td>
+            <td>Conflict  </td>
+            <td>The allowed number of requests has been exceeded</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</div>
+</body>
+</html>

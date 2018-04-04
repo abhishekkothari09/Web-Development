@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Sun Smart</title>
+  <link rel="stylesheet" href="stylesheets/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+</head>
+
+<!-- Login form -->
+	<body class="login-body">
+		<div class="row">
+			<div class="input-cart col s12 m10 push-m1 z-depth-2 grey lighten-5">
+				<div class="col s12 m5 login">
+					<h4 class="center">Log in</h4>
+					<br>
+						<div class="row">
+							<div class="input-field">
+									<input type="text" id="loginemail" name="email" class="validate" required="required">
+									<label for="loginemail">E-Mail</label>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="input-field">
+								<input type="password" id="pass" name="password" class="validate" required="required">
+								<label for="pass"> Password</label>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="col s6">
+								<button type="submit" name="signin" id="signin" class="btn waves-effect waves-light blue right">Log in</button>
+							</div>
+						</div>
+					<div class="col s12"><br>
+          			<div class="legal center"></div>
+					<div class="legal center">
+					        <div id="LoginServerResponse"></div>
+					</div>
+				</div>
+				</div>
+
+
+				<!-- Signup form -->
+				<div class="col s12 m7 signup">
+				<div class="signupForm">
+					<h4 class="center">Sign up</h4>
+					<br>
+						<div class="row">
+							<div class="input-field col s12 m6">
+								<input type="text" id="name-picked" name="namepicked" class="validate" required="required">
+								<label for="name-picked">Pick a Username</label>
+							</div>
+							<div class="input-field col s12 m6">
+								<input type="password" id="pass-picked" name="passpicked" class="validate" required="required">
+								<label for="pass-picked">Password</label>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="input-field email col s12 m6 ">
+								<!-- <div class="col s12"> -->
+									<input type="text" id="email" name="email" class="validate" required="required">
+									<label for="email">Your E-Mail</label>
+								<!-- </div> -->
+							</div>	
+							<div class="input-field col s12 m6">
+								<input type="password" id="rep-pass" name="reppass" class="validate" required="required">
+								<label for="pass-picked"> Repeat Password</label>
+							</div>	
+						</div>
+					<div class="row">
+						<button type="submit" id="signup" name="btn-signup" class="btn blue right waves-effect waves-light">Sign Up</button>
+					</div>
+					</div>
+					<div class="signup-toggle center" >
+						<h4 class="center">Have No Account ? <a href="#!">Sign Up</a></h4>
+					</div>
+				</div>
+				<div class="col s12">
+					<br>
+          			<div class="legal center"></div>
+					<div class="legal center">
+					        <div id="ServerResponse"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Links to be updated -->
+		<div class="fixed-action-btn toolbar">
+			<a class="btn-floating btn-large amber black-text">
+				Login
+			</a>
+			<ul>
+				<li><a class="indigo center" href="#!">Login with FB</a></li>
+				<li><a class="blue center" href="#!">Login with Twitter</a></li>
+				<li><a class="red center" href="#!">Login with Google +</a></li>
+			</ul>
+		</div>	<!-- script -->
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+			  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			  crossorigin="anonymous"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  		<!-- <script src="asset/js/init.js"></script> -->
+  		<script src="javascripts/login.js"></script>
+
+	</body>
+</html>
+  
+

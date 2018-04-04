@@ -1,0 +1,8 @@
+#addDeviceForm, #main, #error,#success {
+   display: none;
+}
+
+#skinResponse1,#skinResponse2{
+	display: none;
+}
+

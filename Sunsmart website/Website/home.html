@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<title>Sun Smart</title>
+<meta charset="UTF-8">
+
+ <!-- For the weather form -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection">
+ <!-- Other CSS files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+<link rel="stylesheet" href="stylesheets/home.css">
+ 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home"><img src="images/logo.jpg" alt="Logo"></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="weather.html" class="w3-bar-item w3-button modal-trigger"><i class="fa fa-info-circle"></i> API</a>
+      <a href="#modal1" class="w3-bar-item w3-button modal-trigger"><i class="fa fa-info-circle"></i> WEATHER</a>
+      <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> ABOUT</a>
+      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="login.html" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> SIGN IN</a>
+    </div>
+
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="weather.html" onclick="w3_close()" class="w3-bar-item w3-button modal-trigger">API</a>
+  <a href="#modal1" onclick="w3_close()" class="w3-bar-item w3-button modal-trigger">WEATHER</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+  <a href="login.html" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SIGN IN </a>
+</nav>
+
+<!-- Modal for weather forecast -->
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+
+    <h5>Weather Forecast </h5><br>
+
+    <div class="row">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Enter your city" id="cityName" type="text">
+          <label for="cityName">City</label>
+        </div>
+        <div id="cityMsg"></div>
+    </div>
+    
+<!-- Table -->
+    <div class="container">  
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Maximum Temperature</th>
+            <th>Minimum Temperature</th>
+            <th>Wind Speed</th>
+            <th>Snow</th>
+            <th>UV</th>
+            <th>Visibility</th>
+           </tr>
+        </thead>
+        <tbody id ="cityTable">
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action waves-effect waves-green btn-flat" id ="okWeather">OK</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id ="cancelWeather">Cancel</a>
+    </div>
+</div>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-right w3-text-black" style="padding:48px">
+    <span class="w3-jumbo w3-hide-small"><strong>Sun Smart</strong></span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">A better way to enjoy the sun while taking care of your skin.</span><br>
+    <span class="w3-large"><strong>A better way to enjoy the sun while taking care of your skin.</strong></span>
+    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
+  </div> 
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-third">
+      <i class="fa fa-bar-chart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Enjoy personalized advice</p>
+      <p>Sun Smart web App advises you on how long to be outside by taking your skin type combined with the sun's current intensity, read from our IoT device having UV and GPS sensors.</p>
+    </div>
+    <div class="w3-third">
+      <div class="w3-spin"><i class="fa fa-sun-o w3-margin-bottom w3-jumbo w3-center"></i></div>
+      <p class="w3-large">Get Vitamin D</p>
+      <p>Many people are vitamin D deficient. Now you can track how much vitamin D you are getting from the sun each day for your better overall health.</p>
+    </div>
+ 
+    <div class="w3-third">
+      <i class="fa fa-thumbs-o-up w3-margin-bottom w3-jumbo w3-animate-zoom"></i>
+      <p class="w3-large">Be sun safe</p>
+      <p>Exposure to the sun is a major contributor to skin aging, and too much can result in skin cancer. Sun Smart alerts you when your time in the sun is no longer safe.</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>This is Sun Smart.</h3>
+      <p>For people who want to live healthier and achieve more there is Sun Smart. Reach your health and fitness goals outdoors by tracking your UV exposure, and be productive by analyzing your data.</p>
+      <p><a onclick="features_fcn()" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Features</a></p>
+      
+    </div>
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="images/uvhome.jpg" alt="Buildings" width="700" height="394">
+    </div><br><br>
+    <div id="features">
+      <div class="w3-row">
+        <div class="w3-col s6 w3-center">
+          <i class="fa fa-bullseye w3-margin-bottom w3-xxxlarge"></i>
+          <h3> Carry your own sun tracker </h3>
+          <p> Ultraviolet (UV) sun rays constantly change around you. Sun Smart has built-in UV sensors, so it tracks your all-day exposure no matter where you go.</p></div>
+        <div class="w3-col s6 w3-center">
+          <i class="fa fa-bullseye w3-margin-bottom w3-xxxlarge"></i>
+          <h3>Trust its accuracy</h3>
+          <p>Sun Smart uses the data from the high precision UV and GPS sensors to generate meaning charts for better insights.</p></div>>
+        <div class="w3-row">
+        <div class="w3-col s6 w3-center">
+          <i class="fa fa-bullseye w3-margin-bottom w3-xxxlarge"></i>
+          <h3>Works for anyone, any age</h3>
+          <p>Say no to sunburn! Know you're getting enough natural vitamin D. Sun Smart uses your personal physiology to know your right balance in the sun.</p></div>
+        <div class="w3-col s6 w3-center">
+         <i class="fa fa-bullseye w3-margin-bottom w3-xxxlarge"></i>
+         <h3>Just carry it - it's that simple</h3>
+          <p>Sun Smart is always on and has up to 6 months of battery life. It even comes with a replaceable battery.</p></div></div>
+      </div>
+  </div>
+</div>
+
+<!-- Team Section -->
+<div class="w3-container" style="padding:128px 16px" id="team">
+  <h3 class="w3-center">THE TEAM</h3>
+  <p class="w3-center w3-large">The ones who runs this company</p>
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="images/Abhishek.jpg" alt="Abhishek" style="width:100%">
+        <div class="w3-container">
+          <h3>Abhishek Kothari</h3>
+          <p class="w3-opacity">Web Designer</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="images/yawei.jpeg" alt="Yawei" style="width:100%">
+        <div class="w3-container">
+          <h3>Yawei Ding</h3>
+          <p class="w3-opacity">Backend Developer</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="images/zhou.jpg" alt="Jinghao" style="width:100%">
+        <div class="w3-container">
+          <h3>Jinghao Zhou</h3>
+          <p class="w3-opacity">Frontend Developer</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="images/troy.png" alt="Shengxiang" style="width:100%">
+        <div class="w3-container">
+          <h3>Shengxiang Zhu</h3>
+          <p class="w3-opacity">IoT Specialist</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">14+</span>
+    <br>Partners
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">55+</span>
+    <br>Projects Done
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">89+</span>
+    <br>Happy Clients
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">150+</span>
+    <br>Meetings
+  </div>
+</div>
+
+
+<!-- Skills Section -->
+<div class="w3-container w3-light-grey w3-padding-64">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>Our Skills.</h3>
+    </div>
+    <div class="w3-col m6">
+      <p class="w3-wide"><i class="material-icons w3-margin-right">&#xe32a;</i>Security</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:90%">90%</div>
+      </div>
+      <p class="w3-wide"><i class="material-icons w3-margin-right">&#xe30d;</i>Hardware Interfacing</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:85%">85%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-line-chart w3-margin-right"></i>Design for Data</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:80%">80%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:48px 16px" id="contact">
+  <section class="w3-dark-grey w3-padding-64">
+    <h2 class="w3-center">CONTACT US</h2>
+    <p class="w3-center w3-large">Lets get in touch. Send us a message</p>
+  </section>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-half">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Tucson,AZ</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +520 111-1111</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: sunsmart@email.arizona.edu</p>
+      <br>
+      <form action="/action_page.php" target="_blank">
+        <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+        <p>
+          <button class="w3-button w3-black" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </p>
+        <div class="msgResp"></div>
+      </form>
+    </div>
+    <div class="w3-half">
+      <!-- Add Google Maps -->
+      <div id="googleMap" style="width:100%;height:510px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!-- Add Google Maps -->
+<script src="javascripts/home.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNHWfXNsUtVUzAhqortUUjarCNdDRRxBE&callback=initMap" async defer></script>
+
+</body>
+</html>

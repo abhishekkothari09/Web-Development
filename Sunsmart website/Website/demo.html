@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Using viewport to view on smaller ddevices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include various CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="stylesheets/demo.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/demo.js"></script>
+
+  <title>My Data</title>
+</head>
+
+<body>
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+      <a href="home.html"><img src="images/logo.jpg" alt="Logo"></a>
+
+          <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+        <a href="home.html" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> SIGN OUT</a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="login.html" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SIGN OUT </a>
+  </nav>
+
+  <br><br><br>
+ <!-- Left Navigation Menu -->
+  <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:140px">
+    <button class="w3-bar-item w3-button tablink" onclick="my=setInterval(sendreqfordemo, 3000)">Check UV history</button>
+    <button class="w3-bar-item w3-button tablink" onclick="clearInterval(my)">Stop check UV history</button>
+    <button class="w3-bar-item w3-button tablink" onclick="set_active_alert()">Activate alert</button>
+    <button class="w3-bar-item w3-button tablink" onclick="set_cancel_alert()">Cancel alert</button>
+    <button class="w3-bar-item w3-button tablink" onclick="view_UV_data_within_area()">View UV data within area</button>
+  </div>
+
+<div style="margin-left:150px">
+  <div id="demobody">
+    <h5>Welcome,</h5>
+    <p> Use the Navigation menu on the left to access your data :-) </p>
+  </div>
+</div>
+</body>
+</html>

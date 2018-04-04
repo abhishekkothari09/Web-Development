@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<!-- use viewport and import CSS -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/home.css">
+<!-- Bootstrap Library -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- <link rel="stylesheet" href="stylesheets/user.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="javascripts/user.js" defer></script>
+<title>Sun Smart</title>
+</head>
+
+<body>
+  <br><br><br><br>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home"><img src="images/logo.jpg" alt="Logo"></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="demo.html" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> MY DATA</a>
+      <a href="healthtips.html" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> TIPS</a>
+      <a href="home.html" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> SIGN OUT</a>
+    </div>
+
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="demo.html" onclick="w3_close()" class="w3-bar-item w3-button">MY DATA</a>
+  <a href="healthtips.html" onclick="w3_close()" class="w3-bar-item w3-button">TIPS</a>
+  <a href="login.html" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SIGN OUT </a>
+</nav>
+
+  <!-- Modal Structure for updating information -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+
+    <h5>Enter New Account Info.</h5><br>
+
+    <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="" id="password" type="password" class="validate">
+          <label for="password"> New Password</label>
+        </div>
+      </div>
+    </form>
+  </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id ="update">Update</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id ="canceUpdate">Cancel</a>
+    </div>
+  </div>
+          <br><br><br>
+
+<!-- Display account information here -->
+  <div class="row" id="main">
+    <div class="col s12 m12">
+
+      <ul class="collection with-header">
+        <li class="collection-header">
+
+          <h5>Account details<a class="modal-trigger" href="#modal1"><span class="glyphicon glyphicon-pencil pull-right"></span></a></h5>
+        </li>
+        <li class="collection-item">Name: <span id="fullName"></span></li>
+        <li class="collection-item">Email: <span id="email"></span></li>
+      </ul>
+      <div class='green-text text-darken-2' id="updateSuccess"></div>
+      <div class='red-text text-darken-2' id="updateError"></div>
+      
+      <ul class="collection with-header" id="devices">
+        <li class="collection-header">
+          <h5 id ="deviceList">Devices</h5>
+        </li>
+        <li class="collection-item" style="display: none;"   id="addDeviceForm">
+          <p> Enter details to Add:</p>
+          <label for="deviceId">New Device ID:</label>
+          <input type="text" id="deviceId" name="deviceId" col="30">
+          <button id="registerDevice" class="waves-effect waves-light btn">Register</button> 
+          <button id="cancel" class="waves-effect waves-light btn">Cancel</button> 
+        </li>
+        <li class="collection-item" id="addDeviceControl"><a href="#!" id="addDevice">Add Device</a></li>
+
+        <li class="collection-item" style="display: none;"  id="replaceDeviceForm">
+          <p> Enter details to Replace: </p>
+          <label for="oldDeviceId">Old Device ID:</label>
+          <input type="text" id="oldDeviceId" name="oldDeviceId" col="30">
+          <label for="newDeviceId">New Device ID:</label>
+          <input type="text" id="newDeviceId" name="newDeviceId" col="30">
+          <button id="replaceDevice" class="waves-effect waves-light btn">Replace</button> 
+          <button id="replaceCancel" class="waves-effect waves-light btn">Cancel</button> 
+        </li>
+        <li class="collection-item" id="replaceDeviceControl"><a href="#!" id="replaceDeviceBtn">Replace Device</a></li>
+
+        <li class="collection-item" " id="setActive"><a href="#!" id="activeDeviceBtn">Set Active Device</a></li>
+         <li class="collection-item"  style="display: none;" id="activeDeviceForm">
+          <p> Enter Device Id to make it active. </p>
+          <label for="activeDeviceId">Device ID:</label>
+          <input type="text" id="activeDeviceId" name="activeDeviceId" col="30">
+          <button id="setActiveBtn" class="waves-effect waves-light btn">Set</button> 
+          <button id="activeCancel" class="waves-effect waves-light btn">Cancel</button> 
+        </li>
+
+        <li class="collection-item" style="display: none;" id="delDeviceForm">
+          <p> Enter device Id to delete.</p>
+          <label for="deldeviceId"> Device ID:</label>
+          <input type="text" id="deldeviceId" name="deldeviceId" col="30">
+          <button id="delDeviceBtn" class="waves-effect waves-light btn">Delete</button> 
+          <button id="delCancel" class="waves-effect waves-light btn">Cancel</button> 
+        </li>
+        <li class="collection-item" id="delDeviceControl"><a href="#!" id="delDevice">Delete Device</a></li>
+      </ul>
+      
+      <ul class="collection with-header">
+        <li class="collection-header">
+
+          <h5>Check my UV Exposure</h5>
+        </li>
+        <li class="collection-item" id="uvExposure">
+          <p> Enter the details  </p>
+          <label for="skinType">Skin Type</label>
+          <input type="text" id="skinType" name="skinType" col="30">
+          <label for="spf">SPF</label>
+          <input type="text" id="spf" name="spf" col="30">
+          <button id="check" class="waves-effect waves-light btn">Check</button> 
+          <!-- <button id="uvCancel" class="waves-effect waves-light btn">Cancel</button>  -->
+        </li>
+      </ul>
+      <div id="skinResponse1"></div><br>
+      <div id="skinResponse2"></div><br>
+      <div class='green-text text-darken-2' id="updateSuccess"></div>
+      <div class='red-text text-darken-2' id="updateError"></div>
+      <div class='red-text text-darken-2' id="error"></div>
+      <div class='green-text text-darken-2' id="success"></div>
+    </div>
+  </div>
+
+</body>
+
+<!-- NOTE: Import jQuery before materialize.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!-- Initialize dropdown menu in materialize -->
+<script>
+  $(document).ready(function() {
+    $(".dropdown-button").dropdown();
+  })
+</script>
+
+</html>
